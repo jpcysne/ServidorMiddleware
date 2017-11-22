@@ -130,7 +130,7 @@ namespace ServidorMiddleware
 
 
 
-        public void Atualizar()
+        public void Atualizar(string memoria, string cpu)
             {
             
                 StreamWriter swSenderSender;
@@ -148,7 +148,7 @@ namespace ServidorMiddleware
                         
                         // Envia a mensagem para o usuário atual no laço
                         swSenderSender = new StreamWriter(tcpClientes[i].GetStream());
-                        swSenderSender.WriteLine("2");
+                        swSenderSender.WriteLine("2"+"-"+  memoria +"-"+ cpu);
                         swSenderSender.Flush();
                         swSenderSender = null;
                     }

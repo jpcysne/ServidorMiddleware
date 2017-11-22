@@ -79,7 +79,7 @@ namespace ServidorMiddleware
 
         private void Atualizar_Click(object sender, EventArgs e)
         {
-            mainServidor.Atualizar();
+            mainServidor.Atualizar(MEMPossuiTXT.ToString() , CPUPossuiTXT.ToString());
         }
 
         public void mainServidor_MemoriaChanged(object sender, StatusChangedEventArgs e)

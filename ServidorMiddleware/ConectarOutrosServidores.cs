@@ -24,7 +24,9 @@ namespace ServidorMiddleware
         private IPAddress enderecoIP;
         private bool Conectado = false;
         FormMiddleware form;
-
+        private int memoriaSplit;
+        private int cpuSplit;
+        private string[] checkStream;
         public ConectarOutrosServidores()
         {
             Application.ApplicationExit += new EventHandler(OnApplicationExit);
@@ -76,6 +78,7 @@ namespace ServidorMiddleware
             // recebe a resposta do servidor
             strReceptor = new StreamReader(tcpServidor.GetStream());
             string ConResposta = strReceptor.ReadLine();
+            
             // Se o primeiro caracater da resposta é 1 a conexão foi feita com sucesso
             if (ConResposta[0] == '1')
             {
@@ -101,9 +104,13 @@ namespace ServidorMiddleware
                 try
                 {
                     ConResposta = strReceptor.ReadLine();
-                    if (ConResposta[0] == '2')
+                    checkStream = ConResposta.Split('-');
+                    if (checkStream[0].Equals('2'))
                     {
-                        EnviaMensagem();
+                        memoriaSplit = Convert.ToInt32(checkStream[1]);
+                        cpuSplit = Convert.ToInt32(checkStream[2]);
+
+                        EnviaMensagem(memoriaSplit,cpuSplit);
                     }
                     // exibe mensagems no Textbox
                     form.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { strReceptor.ReadLine() });
@@ -123,7 +130,7 @@ namespace ServidorMiddleware
         }
 
         // Envia a mensagem para o servidor
-        private void EnviaMensagem()
+        private void EnviaMensagem(int memoria, int cpu)
         {
 
             stwEnviador.WriteLine(form.CPUTXT.Text + "-" + form.MemoriaTXT.Text);
