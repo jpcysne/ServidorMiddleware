@@ -163,6 +163,7 @@
             // 
             this.MEMBloqueioTXT.Location = new System.Drawing.Point(89, 40);
             this.MEMBloqueioTXT.Name = "MEMBloqueioTXT";
+            this.MEMBloqueioTXT.ReadOnly = true;
             this.MEMBloqueioTXT.Size = new System.Drawing.Size(100, 20);
             this.MEMBloqueioTXT.TabIndex = 12;
             // 
@@ -170,6 +171,7 @@
             // 
             this.CPUBloqueioTXT.Location = new System.Drawing.Point(89, 84);
             this.CPUBloqueioTXT.Name = "CPUBloqueioTXT";
+            this.CPUBloqueioTXT.ReadOnly = true;
             this.CPUBloqueioTXT.Size = new System.Drawing.Size(100, 20);
             this.CPUBloqueioTXT.TabIndex = 13;
             // 
@@ -268,6 +270,7 @@
             this.BotaoRecurso.TabIndex = 29;
             this.BotaoRecurso.Text = "Atualizar";
             this.BotaoRecurso.UseVisualStyleBackColor = true;
+            this.BotaoRecurso.Click += new System.EventHandler(this.BotaoRecurso_Click);
             // 
             // label11
             // 
@@ -466,8 +469,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox CPUPossuiTXT;
-        private System.Windows.Forms.TextBox MEMPossuiTXT;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BotaoBloqueio;
@@ -489,6 +490,8 @@
         public System.Windows.Forms.TextBox txtServidor;
         private System.Windows.Forms.Button BuscarServidores;
         public System.Windows.Forms.ComboBox comboBoxServidores;
+        public System.Windows.Forms.TextBox CPUPossuiTXT;
+        public System.Windows.Forms.TextBox MEMPossuiTXT;
     }
 }
 

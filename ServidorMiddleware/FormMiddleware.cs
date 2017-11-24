@@ -77,10 +77,7 @@ namespace ServidorMiddleware
             txtServidor.AppendText(strMensagem + "\r\n");
         }
 
-        private void Atualizar_Click(object sender, EventArgs e)
-        {
-            mainServidor.Atualizar(MEMPossuiTXT.ToString() , CPUPossuiTXT.ToString());
-        }
+        
 
         public void mainServidor_MemoriaChanged(object sender, StatusChangedEventArgs e)
         {
@@ -110,6 +107,12 @@ namespace ServidorMiddleware
             MemoriaTXT.Text = memoriaAtual.ToString();
             int cpuAtual = Convert.ToInt32(CPUPossuiTXT.ToString()) + Convert.ToInt32(CPUTXT.ToString());
             CPUTXT.Text = cpuAtual.ToString();
+            mainServidor.Atualizar(MemoriaTXT.ToString(), CPUTXT.ToString());
+        }
+
+        private void Atualizar_Click(object sender, EventArgs e)
+        {
+            mainServidor.Atualizar(MemoriaTXT.ToString(), CPUTXT.ToString());
         }
 
         private void ConectarOutroServ_Click(object sender, EventArgs e)
@@ -127,6 +130,11 @@ namespace ServidorMiddleware
 
 
             }
+        }
+
+        private void BotaoRecurso_Click(object sender, EventArgs e)
+        {
+            mainServidor.CapitarRecurso(comboBoxServidores.SelectedIndex.ToString(), );
         }
     }
 }

@@ -221,6 +221,12 @@ namespace ServidorMiddleware
 
 
         }
+
+        public void CapitarRecurso()
+        {
+
+
+        }
         
             public void IniciaAtendimento()
             {

@@ -133,7 +133,7 @@ namespace ServidorMiddleware
         private void EnviaMensagem(int memoria, int cpu)
         {
 
-            stwEnviador.WriteLine(form.CPUTXT.Text + "-" + form.MemoriaTXT.Text);
+            stwEnviador.WriteLine(form.CPUPossuiTXT.Text + "-" + form.MEMPossuiTXT.Text);
             stwEnviador.Flush();
 
         }
