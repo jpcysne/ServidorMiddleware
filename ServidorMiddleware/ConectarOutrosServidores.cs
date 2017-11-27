@@ -112,6 +112,13 @@ namespace ServidorMiddleware
 
                         EnviaMensagem(memoriaSplit,cpuSplit);
                     }
+                    if (checkStream[0].Equals('3'))
+                    {
+                        memoriaSplit = Convert.ToInt32(checkStream[1]);
+                        cpuSplit = Convert.ToInt32(checkStream[2]);
+
+                        RecursoCaptado(memoriaSplit, cpuSplit);
+                    }
                     // exibe mensagems no Textbox
                     form.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { strReceptor.ReadLine() });
 
@@ -135,6 +142,11 @@ namespace ServidorMiddleware
 
             stwEnviador.WriteLine(form.CPUPossuiTXT.Text + "-" + form.MEMPossuiTXT.Text);
             stwEnviador.Flush();
+
+        }
+
+        private void RecursoCaptado(int memoriaRecurso, int cpuRecurso)
+        {
 
         }
 
@@ -163,10 +175,7 @@ namespace ServidorMiddleware
             }
         }
 
-        private void AtualizarBotao_Click(object sender, EventArgs e)
-        {
-            EnviaMensagem();
-        }
+        
     }
 }
 

@@ -222,9 +222,37 @@ namespace ServidorMiddleware
 
         }
 
-        public void CapitarRecurso()
+        public void CaptarRecurso(string servidorEscolhido, string memoriaRecurso, string cpuRecurso)
         {
+            StreamWriter swSenderSender;
 
+            // Cria um array de clientes TCPs do tamanho do numero de clientes existentes
+            TcpClient[] tcpClientes = new TcpClient[MiddlewareServidor.htConexoes.Count];
+            // Copia os objetos TcpClient no array
+            MiddlewareServidor.htUsuarios.Values.CopyTo(tcpClientes, 0);
+            
+            //var key = htUsuarios.Keys.OfType<String>().FirstOrDefault(s => htUsuarios[s].Equals(servidorEscolhido));
+
+            // Percorre a lista de clientes TCP
+            for (int i = 0; i < tcpClientes.Length; i++)
+            {
+                // Tenta enviar uma mensagem para cada cliente
+                try
+                {
+                    if (tcpClientes[i].Equals(servidorEscolhido))
+                    {
+                        // Envia a mensagem para o usuário atual no laço
+                        swSenderSender = new StreamWriter(tcpClientes[i].GetStream());
+                        swSenderSender.WriteLine("3" + "-" + memoriaRecurso + "-" + cpuRecurso);
+                        swSenderSender.Flush();
+                        swSenderSender = null;
+                    }
+                }
+                catch // Se houver um problema , o usuário não existe , então remove-o
+                {
+                    RemoveUsuario(tcpClientes[i]);
+                }
+            }
 
         }
         
