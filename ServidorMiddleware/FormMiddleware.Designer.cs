@@ -463,8 +463,6 @@
         public System.Windows.Forms.TextBox MemoriaTXT;
         public System.Windows.Forms.TextBox CPUTXT;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox MEMBloqueioTXT;
-        private System.Windows.Forms.TextBox CPUBloqueioTXT;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -492,6 +490,8 @@
         public System.Windows.Forms.ComboBox comboBoxServidores;
         public System.Windows.Forms.TextBox CPUPossuiTXT;
         public System.Windows.Forms.TextBox MEMPossuiTXT;
+        public System.Windows.Forms.TextBox MEMBloqueioTXT;
+        public System.Windows.Forms.TextBox CPUBloqueioTXT;
     }
 }
 

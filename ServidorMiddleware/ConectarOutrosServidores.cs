@@ -145,8 +145,39 @@ namespace ServidorMiddleware
 
         }
 
+        private void RecursoBloqueado()
+        {
+
+        }
+
         private void RecursoCaptado(int memoriaRecurso, int cpuRecurso)
         {
+            ///aqui ele recebe o recurso, coloca no bloqueio desse servidor o recurso pedido
+            
+            if (memoriaRecurso <= (Convert.ToInt32(form.MEMPossuiTXT.ToString())) 
+                || (cpuRecurso <= Convert.ToInt32(form.CPUPossuiTXT.ToString())))
+            {
+                if((Convert.ToInt32(form.MEMBloqueioTXT.ToString()) < Convert.ToInt32(form.MEMPossuiTXT.ToString()))
+                    || (Convert.ToInt32(form.CPUBloqueioTXT.ToString()) < Convert.ToInt32(form.CPUPossuiTXT.ToString())))
+                {
+                    cpuRecurso = Convert.ToInt32(form.CPUBloqueioTXT) + cpuRecurso;
+                    memoriaRecurso = Convert.ToInt32(form.MEMBloqueioTXT) + memoriaRecurso;
+                    form.MEMBloqueioTXT.Text = memoriaRecurso.ToString();
+                    form.CPUBloqueioTXT.Text = cpuRecurso.ToString();
+
+
+                }else
+                {
+                    stwEnviador.WriteLine("Recurso Indisponivel");
+                    stwEnviador.Flush();
+                }
+            }else
+            {
+                stwEnviador.WriteLine("Recurso Indisponivel");
+                stwEnviador.Flush();
+            }
+
+            
 
         }
 

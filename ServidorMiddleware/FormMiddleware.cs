@@ -134,7 +134,8 @@ namespace ServidorMiddleware
 
         private void BotaoRecurso_Click(object sender, EventArgs e)
         {
-            mainServidor.CapitarRecurso(comboBoxServidores.SelectedIndex.ToString(), MEMRecursoTXT.ToString(), CPURecursoTXT.ToString() );
+            
+            mainServidor.CaptarRecurso(comboBoxServidores.SelectedIndex.ToString(), MEMRecursoTXT.ToString(), CPURecursoTXT.ToString() );
         }
     }
 }
